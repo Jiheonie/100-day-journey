@@ -1,5 +1,5 @@
 from os import system
-from data import coins, MENU, resources
+from data import COINS, MENU, resources
 
 def clear():
     # for windows
@@ -7,8 +7,8 @@ def clear():
 
 # list of values of coins [0.25, 0.1, 0.05, 0.01]
 coin_values = []
-for item in coins:
-    coin_values.append(coins[item]) 
+for item in COINS:
+    coin_values.append(COINS[item]) 
 
 def calculate_money(coin_paid):
     total = 0
@@ -50,7 +50,7 @@ def make_order(drink):
     # calculate money
     print("Please insert coins.")    
     coin_paid = []
-    for coin_type in coins:
+    for coin_type in COINS:
         coin_paid.append(int(input(f"How many {coin_type}s: ")))
     money_paid = calculate_money(coin_paid)
 

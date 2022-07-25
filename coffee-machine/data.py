@@ -31,7 +31,7 @@ resources = {
     "coffee": 100,
 }
 
-coins = {
+COINS = {
     "quarter": 0.25,
     "dime": 0.1,
     "nickle": 0.05,
