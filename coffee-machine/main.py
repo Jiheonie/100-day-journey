@@ -15,5 +15,5 @@ while is_on:
     if prompt == "off":
         is_on = False
         
-    if prompt == "espresso" or prompt == "latte" or prompt == "cappucino":
+    if prompt == "espresso" or prompt == "latte" or prompt == "cappuccino":
         money += make_order(prompt) 

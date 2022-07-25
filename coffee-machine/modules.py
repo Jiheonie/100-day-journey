@@ -5,10 +5,12 @@ def clear():
     # for windows
     _ = system('cls') 
 
+
 # list of values of coins [0.25, 0.1, 0.05, 0.01]
 coin_values = []
 for item in COINS:
     coin_values.append(COINS[item]) 
+
 
 def calculate_money(coin_paid):
     total = 0
@@ -17,7 +19,19 @@ def calculate_money(coin_paid):
     return round(total, 2)
 
 
+def is_resource_sufficient(ingredients):
+    is_enough = True
+    missing_thing = ""
+    for type in ingredients:
+        if ingredients[type]  > resources[type]:
+            is_enough = False
+            missing_thing = type
+            print(f"Sorry, there is not enough {missing_thing}.")
+    return is_enough
+    
+
 money = 0
+
 
 # When the user chose the drink
 # prompt = espresso, latte, cappucino
@@ -26,17 +40,12 @@ def make_order(drink):
 
     # calculate resources needed 
     ingredients = order["ingredients"]
-    can_make = True
-    missing_thing = ""
-    for type in ingredients:
-        if ingredients[type]  > resources[type]:
-            can_make = False
-            missing_thing = type
-            break
+
+    # check if we have enough resources
+    can_make = is_resource_sufficient(ingredients)
 
     # if we don't have enough resources
     if not can_make:
-        print(f"Sorry, there is not enough {missing_thing}.")
         return 0
 
     # if we have enough resources to make the order
@@ -54,7 +63,7 @@ def make_order(drink):
         coin_paid.append(int(input(f"How many {coin_type}s: ")))
     money_paid = calculate_money(coin_paid)
 
-    # the money is enough
+    # check if the money is enough
     can_buy = True
     if money_paid < cost:
         can_buy = False
@@ -65,6 +74,7 @@ def make_order(drink):
         return 0
 
     # if paid enough money, now you can have your drink
+    # can_buy = True
     #calculate change
     change = money_paid - cost 
     print(f"Here is ${change} in change")
