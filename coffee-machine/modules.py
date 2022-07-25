@@ -28,6 +28,7 @@ def is_resource_sufficient(ingredients):
             missing_thing = type
             print(f"Sorry, there is not enough {missing_thing}.")
     return is_enough
+    # return if we have enough resources for the order
 
 
 def process_coin():
@@ -36,6 +37,7 @@ def process_coin():
     for coin_type in COINS:
         coin_paid.append(int(input(f"How many {coin_type}s: ")))
     return calculate_money(coin_paid)
+    # return the total calculated from coins inserted
     
 
 money = 0
@@ -65,11 +67,11 @@ def make_order(drink):
     cost = order ["cost"]
 
     # calculate money
-    money_paid = process_coin()
+    payment = process_coin()
 
     # check if the money is enough
     can_buy = True
-    if money_paid < cost:
+    if payment < cost:
         can_buy = False
 
     # paid not enough money
@@ -80,7 +82,7 @@ def make_order(drink):
     # if paid enough money, now you can have your drink
     # can_buy = True
     #calculate change
-    change = money_paid - cost 
+    change = payment - cost 
     print(f"Here is ${change} in change")
-    print(f"Here is your {drink}. Enjoy!")
+    print(f"Here is your {drink} ☕. Enjoy!")
     return cost
