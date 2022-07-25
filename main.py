@@ -1,1 +1,12 @@
-print(0.02 * 0.05)
+from prettytable import PrettyTable
+
+table = PrettyTable()
+
+table.add_column("Pokemon Name", ["Pikachu", "Squirlte", "Charmander"])
+table.add_column("Type", ["Electric", "Water", "Fire"])
+
+table.align = "l"
+
+print(table.align)
+
+print(table)
