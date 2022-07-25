@@ -1,8 +1,1 @@
-number = int(input("Enter a number:"))
-
-if 3 < number < 10:
-    print("hehe")
-else:
-    print("hihi")
-
-print([number])
+print(0.02 * 0.05)
