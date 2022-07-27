@@ -4,10 +4,11 @@ from turtle import Turtle, Screen
 tim = Turtle()
 screen = Screen()
 
-tim.shape("turtle")
+screen.title("Welcome to the turtle zoo!")
 screen.colormode(255)
 
-tim.pensize(5)
+tim.shape("classic")
+tim.pensize(1)
 tim.speed(0)
 
 
@@ -18,22 +19,14 @@ def random_color():
     return (r,g,b)
 
 
-def draw_shape(angles):
-    for _ in range(angles):
-        tim.forward(100)
-        tim.left(360/angles)   
 
+num_of_circles = 0
 
-angles = 3
-while angles <= 9:
-    tim.pencolor(random_color())
-    draw_shape(angles)
-    angles += 1
-
-
-
-
-
+while num_of_circles < 100:
+    tim.color(random_color())
+    tim.circle(100)
+    tim.setheading(tim.heading() + 360/100)
+    num_of_circles += 1
 
 
 
