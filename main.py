@@ -1,12 +1,21 @@
-from prettytable import PrettyTable
+class User:
+    def __init__(self, name, id) :
+        print("The new user being created...")
+        self.name = name
+        self.id = id
+        self.follower = 0
+        self.following = 0
 
-table = PrettyTable()
+    def follow(self, user):
+        self.following += 1
+        user.follower += 1
 
-table.add_column("Pokemon Name", ["Pikachu", "Squirlte", "Charmander"])
-table.add_column("Type", ["Electric", "Water", "Fire"])
+user_1 = User("hoang", "001")
+user_2 = User("Yen", "002")
 
-table.align = "l"
+user_1.follow(user_2)
 
-print(table.align)
-
-print(table)
+print(user_1.follower)
+print(user_1.following)
+print(user_2.follower)
+print(user_2.following)
