@@ -45,9 +45,9 @@ while is_on:
         scoreboard.game_over()
 
     # detect collision with tail
-    for part in snake.body:
+    for part in snake.body[1:]:
         # if head collides with any part of the body 
-        if snake.head.distance(part) < 15 and part != snake.head:
+        if snake.head.distance(part) < 15:
             is_on = False
             scoreboard.game_over()
 
