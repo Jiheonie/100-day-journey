@@ -1,27 +1,18 @@
-from turtle import Turtle, Screen
+class Animal:
+    def __init__(self) -> None:
+        self.num_eyes = 2
 
-my_tur = Turtle()
+    def breathe(self):
+        print("Inhale, exhale.")
 
-def move_forward():
-    my_tur.forward(20)
+class Dog(Animal):
+    def __init__(self) -> None:
+        super().__init__()
 
-def move_backward():
-    my_tur.backward(20)
+    def breathe(self):
+        super().breathe()
+        print("Doing in the water.")
 
-def turn_left():
-    my_tur.setheading(my_tur.heading() + 10)
-
-def turn_right():
-    my_tur.setheading(my_tur.heading() - 10)
-
-
-screen = Screen() 
-screen.listen()
-screen.onkey(move_forward, "w")
-screen.onkey(move_backward, "s")
-screen.onkey(turn_left, "a")
-screen.onkey(turn_right, "d")
-
-
-
-screen.exitonclick()
+yenmach = Dog()
+print(yenmach.num_eyes) 
+yenmach.breathe()
