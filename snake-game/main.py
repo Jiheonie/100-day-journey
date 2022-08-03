@@ -52,5 +52,4 @@ while is_on:
             snake.reset()
 
 
-
 screen.exitonclick()
