@@ -3,8 +3,8 @@ from random import randint
 
 
 screen = Screen()
-width_edge = screen.window_width() / 2 - 50
-height_edge = screen.window_height() / 2 - 50
+width_edge = screen.window_width() / 2 - 30
+height_edge = screen.window_height() / 2 - 30
 
 
 class Food(Turtle):
