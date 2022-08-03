@@ -41,7 +41,6 @@ class Snake:
 
     def extend(self):
         self.add_body(self.tail.position())
-        print(self.length)
 
     def move(self):
         for part_num in range(len(self.body) - 1, 0, -1):
