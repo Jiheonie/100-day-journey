@@ -22,15 +22,14 @@ for i in range(DEFAULT_LENGTH):
 
 class Snake:
     def __init__(self):
-        self.length = DEFAULT_LENGTH
         self.body = []
         self.create_snake()
-        self.head = self.body[0]
-        self.tail = self.body[-1]
 
     def create_snake(self):
         for position in positions:
             self.add_body(position)
+        self.head = self.body[0]
+        self.tail = self.body[-1]
 
     def add_body(self, position):
         new_part = Turtle("square")
@@ -42,15 +41,21 @@ class Snake:
 
     def extend(self):
         self.add_body(self.tail.position())
-        self.length += 1
+        print(self.length)
 
     def move(self):
-        for part_num in range(self.length - 1, 0, -1):
+        for part_num in range(len(self.body) - 1, 0, -1):
             new_x = self.body[part_num - 1].xcor()
             new_y = self.body[part_num - 1].ycor()
             self.body[part_num].goto(new_x, new_y)
         self.control()
         self.head.forward(MOVE_DISTANCE)
+
+    def reset(self):
+        for part in self.body:
+            part.goto(1000, 1000)
+        self.body.clear()
+        self.create_snake()
 
     def up(self):
         if self.head.heading() != DOWN:

@@ -14,22 +14,29 @@ class Scoreboard(Turtle):
     def __init__(self) -> None:
         super().__init__()
         self.score = 0
+        self.high_score = 0
+        self.game_over = False
         self.hideturtle()
         self.penup()
         self.color("white")
-        self.goto(0, SCOREBOARD_HEIGHT)
         self.update()
 
     def update(self):
-        self.write(f"Score: {self.score}" , align=ALIGNMENT, font=FONT_STYLE)
+        self.clear()
+        self.goto(0, SCOREBOARD_HEIGHT)
+        self.write(f"Score: {self.score}  |  High Score: {self.high_score}" , align=ALIGNMENT, font=FONT_STYLE)
 
-    def game_over(self):
+
+    def reset(self):
+        self.game_over = True
         self.home()
-        self.write("GAME OVER!" , align=ALIGNMENT, font=FONT_STYLE)
+        if self.score > self.high_score:
+            self.high_score = self.score
+        self.score = 0
+        self.update()
 
     def increase(self):
         self.score += 1
-        self.clear()
         self.update()
 
 
